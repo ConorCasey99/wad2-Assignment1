@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies, getPopularMovies } from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
 
@@ -23,6 +23,8 @@ const reducer = (state, action) => {
       return { movies: action.payload.movies, upcoming: [...state.upcoming] };
     case "load-upcoming":
       return { upcoming: action.payload.movies, movies: [...state.movies] };
+    case "load-popular":
+      return { popular: action.payload.movies, movies: [...state.movies] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -31,6 +33,7 @@ const reducer = (state, action) => {
             : m
         ),
         upcoming: [...state.upcoming],
+        popular: [...state.popular],
       };
     default:
       return state;
@@ -38,7 +41,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], popular: [] });
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
@@ -49,7 +52,6 @@ const MoviesContextProvider = (props) => {
     const index = state.upcoming.map((m) => m.id).indexOf(movieId);
     dispatch({type: "add-upcoming", payload: { movie: state.upcoming[index] } });
   };
-
 
   const addReview = (movie, review) => {
     dispatch({ type: "add-review", payload: { movie, review } });
@@ -69,11 +71,19 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    getPopularMovies().then((movies) => {
+      dispatch({ type: "load-popular", payload: { movies } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
+        popular: state.popular,
         addToFavorites: addToFavorites,
         addToWatchlist: addToWatchlist,
         addReview: addReview,
