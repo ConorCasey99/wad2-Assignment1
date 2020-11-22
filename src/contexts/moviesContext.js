@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getUpcomingMovies, getPopularMovies } from "../api/tmdb-api";
+import { getMovies, getUpcomingMovies} from "../api/tmdb-api";
 
 export const MoviesContext = createContext(null);
 
@@ -23,8 +23,6 @@ const reducer = (state, action) => {
       return { movies: action.payload.movies, upcoming: [...state.upcoming] };
     case "load-upcoming":
       return { upcoming: action.payload.movies, movies: [...state.movies] };
-    case "load-popular":
-      return { popular: action.payload.movies, movies: [...state.movies] };
     case "add-review":
       return {
         movies: state.movies.map((m) =>
@@ -33,7 +31,6 @@ const reducer = (state, action) => {
             : m
         ),
         upcoming: [...state.upcoming],
-        popular: [...state.popular],
       };
     default:
       return state;
@@ -71,19 +68,11 @@ const MoviesContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    getPopularMovies().then((movies) => {
-      dispatch({ type: "load-popular", payload: { movies } });
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <MoviesContext.Provider
       value={{
         movies: state.movies,
         upcoming: state.upcoming,
-        popular: state.popular,
         addToFavorites: addToFavorites,
         addToWatchlist: addToWatchlist,
         addReview: addReview,
