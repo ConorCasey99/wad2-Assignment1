@@ -1,22 +1,23 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templatePeopleListPage'
+import AddToFavoritePeopleButton from '../components/buttons/addToFavoritePeople'
 import {PeopleContext} from '../contexts/peopleContext'
 
-const PopularPeople = () => {
+const PeopleListPage = () => {
   const context = useContext(PeopleContext);
   const people = context.people.filter((p) => {  // New
-    return !("people" in p);
+    return !("favorite" in p);
   });
 
   return (
     <PageTemplate
       title="No. People"
       people={people}  /* Changed */
-      action={(people) => {
-      return <AddToWatchlistButton people={people} />;
+      action={(person) => {
+      return <AddToFavoritePeopleButton person={person} />;
       }}
     />
   );
 };
 
-export default PopularPeople;
+export default PeopleListPage;

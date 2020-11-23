@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./peopleCard.css";
+import "./personCard.css";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PeopleCard = ({person, action}) => {
+const PersonCard = ({person, action}) => {
 
   return (
     <div className="col-sm-3">
       <div className="card  bg-white">
-      <Link to={`/person/${person.id}`}>
+      <Link to={`/people/${person.id}`}>
         <img
           className="card-img-tag center "
           alt={person.name}
@@ -21,6 +21,7 @@ const PeopleCard = ({person, action}) => {
         />
         </Link>
         <div className="card-body">
+        <h4 className="card-title ">{person.name}</h4>
           <p>
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {person.popularity}</span>
@@ -34,4 +35,4 @@ const PeopleCard = ({person, action}) => {
   );
 };
 
-export default PeopleCard;
+export default PersonCard;

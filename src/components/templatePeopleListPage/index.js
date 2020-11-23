@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Header from "../headerPeopleList";
-import PeopleList from "../peopleList";
+import Header from "../headerPersonList";
+import PersonList from "../personList";
 import FilterControls from "../filterControls";
 
 const PeopleListPageTemplate = ({ people, name, action }) => {
@@ -12,17 +12,16 @@ const PeopleListPageTemplate = ({ people, name, action }) => {
     
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
-    else setGenreFilter(value);
   };
 
   return (
     <>
       <Header name={name} numPeople={displayedPeople.length} />
       <FilterControls onUserInput={handleChange} numPeople={displayedPeople.length}/>
-      <PeopleList
+      <PersonList
         action={action}
         People={displayedPeople}
-      ></PeopleList>
+      ></PersonList>
     </>
   );
 };
