@@ -1,7 +1,6 @@
 import React, { useEffect, createContext, useReducer } from "react";
 import {getPopularPeople} from "../api/tmdb-api";
 
-
 export const PeopleContext = createContext(null);
 
 const reducer = (state, action) => {
@@ -13,8 +12,7 @@ const reducer = (state, action) => {
         ),
         people: [...state.people],
       };
-
-        case "load-people":
+        case "load":
             return { people: action.payload.people, people: [...state.people] };
     default:
        return state;
@@ -31,7 +29,7 @@ const PeopleContextProvider = (props) => {
 
     useEffect(() => {
         getPopularPeople().then((people) => {
-          dispatch({ type: "load-people", payload: { people } });
+          dispatch({ type: "load", payload: { people } });
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);

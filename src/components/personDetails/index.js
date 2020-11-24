@@ -28,12 +28,12 @@ export default ({ person }) => {
       </ul>
 
       <ul className="list-group list-group-horizontal">
-        <li key="gh" className="list-group-item list-group-item-dark">
+        <li key="kf" className="list-group-item list-group-item-dark">
           Known For 
         </li>
         {person.known_for.map(k => (
           <li key={k.poster_path} className="list-group-item">
-            {k.title}
+            {k.name}
           </li>
         ))}
       </ul>
