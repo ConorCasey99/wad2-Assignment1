@@ -21,11 +21,8 @@ const PersonCard = ({person, action}) => {
         />
         </Link>
         <div className="card-body">
-        <h4 className="card-title ">{person.name}</h4>
-          <p>
-            <FontAwesomeIcon icon={["fas", "star"]} />
-            <span> {person.popularity}</span>
-          </p>
+          <h4 className="card-title ">{person.name}</h4>
+    
         </div>
         <div className="card-footer">
            {action(person)}

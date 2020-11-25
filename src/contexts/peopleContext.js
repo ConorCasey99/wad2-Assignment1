@@ -14,6 +14,15 @@ const reducer = (state, action) => {
       };
         case "load":
             return { people: action.payload.people, people: [...state.people] };
+            case "add-review":
+            return {
+              people: state.people.map((p) =>
+                p.id === action.payload.people.id
+                  ? { ...p, review: action.payload.review }
+                  : p
+              ),
+              upcoming: [...state.upcoming],
+            };
     default:
        return state;
   }
