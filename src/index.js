@@ -14,6 +14,7 @@ import PeopleContextProvider from "./contexts/peopleContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import peopleListPage from './pages/peopleListPage';
+import watchlistPage from './pages/watchlistPage';
 
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                     <Route path="/reviews/:id" component={MovieReviewPage} />
                     <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                    <Route exact path="/movies/watchlist" component={watchlistPage} />
                     <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                     <Route exact path="/people/popular" component={peopleListPage} />
                     <Route path="/people/:id" component={PersonPage} />

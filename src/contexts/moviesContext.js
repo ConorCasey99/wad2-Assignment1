@@ -12,6 +12,13 @@ const reducer = (state, action) => {
         ),
         upcoming: [...state.upcoming],
       };
+      case "add-watchlist":
+        return {
+          upcoming: state.upcoming.map((m) =>
+            m.id === action.payload.movie.id ? { ...m, upcoming: true } : m
+          ),
+          movies: [...state.movies],
+        };
       case "add-upcoming":
       return {
         upcoming: state.upcoming.map((m) =>
@@ -47,7 +54,7 @@ const MoviesContextProvider = (props) => {
 
   const addToWatchlist = (movieId) => {
     const index = state.upcoming.map((m) => m.id).indexOf(movieId);
-    dispatch({type: "add-upcoming", payload: { movie: state.upcoming[index] } });
+    dispatch({type: "add-watchlist", payload: { movie: state.upcoming[index] } });
   };
 
   const addReview = (movie, review) => {
