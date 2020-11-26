@@ -14,15 +14,24 @@ const PersonCard = ({person, action}) => {
           className="card-img-tag center "
           alt={person.name}
           src={
-            person.poster_path
-              ? `https://image.tmdb.org/t/p/w500/${person.poster_path}`
-              : "./film-poster-placeholder.png"
+            person.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+              : "./person-poster-placeholder.png"
           }
         />
         </Link>
         <div className="card-body">
           <h4 className="card-title ">{person.name}</h4>
-    
+          <p>
+            <FontAwesomeIcon icon={["fas", "star"]} />
+            <span> {person.popularity}</span>
+          </p>
+          <p>
+            <p>known for
+            <span> {person.known_for_department}</span>
+            </p>
+          </p>
+        
         </div>
         <div className="card-footer">
            {action(person)}

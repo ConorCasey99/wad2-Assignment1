@@ -5,13 +5,13 @@ import {PeopleContext} from '../contexts/peopleContext'
 
 const PeopleListPage = () => {
   const context = useContext(PeopleContext);
-  const people = context.people.filter((p) => {  // New
-    return !("favorite" in p);
+  const people = context.people.filter((m) => {  // New
+    return !("favoritePerson" in m);
   });
 
   return (
     <PageTemplate
-      title="No. People"
+      name="Popular People No."
       people={people}  /* Changed */
       action={(person) => {
       return <AddToFavoritePeopleButton person={person} />;

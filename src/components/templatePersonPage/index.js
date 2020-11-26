@@ -10,9 +10,9 @@ const TemplatePersonPage = ({ person, children }) => {
         <div className="col-3">
           <img
             src={
-              person.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${person.poster_path}`
-                : "./film-poster-placeholder.png"
+              person.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
+                : "./person-poster-placeholder.png"
             }
             className="person"
             alt={person.name}

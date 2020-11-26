@@ -11,10 +11,16 @@ p {
 }
 
 .card-body {
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .card-title {
   text-align: center
+}
+
+.card{
+  padding: 10px;
+  margin-bottom: 19px;
+  margin-top:5px;
 }

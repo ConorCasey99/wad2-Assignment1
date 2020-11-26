@@ -20,7 +20,7 @@ const PeopleListPageTemplate = ({ people, name, action }) => {
       <FilterControls onUserInput={handleChange} numPeople={displayedPeople.length}/>
       <PersonList
         action={action}
-        People={displayedPeople}
+        people={displayedPeople}
       ></PersonList>
     </>
   );

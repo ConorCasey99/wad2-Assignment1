@@ -7,26 +7,27 @@ const reducer = (state, action) => {
     switch (action.type) {
       case "add-favorite-person":
       return {
-        people: state.people.map((p) =>
-          p.id === action.payload.person.id ? { ...p, favorite: true } : p
+        people: state.people.map((m) =>
+          m.id === action.payload.person.id ? { ...m, favoritePerson: true } : m
         ),
         people: [...state.people],
       };
-        case "load":
-            return { people: action.payload.people, people: [...state.people] };
-            case "add-review":
-            return {
-              people: state.people.map((p) =>
-                p.id === action.payload.people.id
-                  ? { ...p, review: action.payload.review }
-                  : p
-              ),
-              upcoming: [...state.upcoming],
-            };
+      case "load":
+        return { people: action.payload.people };
+      case "add-comment":
+          return {
+             people: state.people.map((p) =>
+              p.id === action.payload.people.id
+                ? { ...p, comment: action.payload.comment }
+                : p
+            ),
+            people: [...state.people],
+          };
     default:
        return state;
   }
 };
+
 
 const PeopleContextProvider = (props) => {
     const [state, dispatch] = useReducer(reducer, { people: [] });
@@ -37,17 +38,22 @@ const PeopleContextProvider = (props) => {
     };
 
     useEffect(() => {
-        getPopularPeople().then((people) => {
-          dispatch({ type: "load", payload: { people } });
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+      getPopularPeople().then((people) => {
+      dispatch({ type: "load", payload: { people } });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+      const addComment = (person, comment) => {
+        dispatch({ type: "add-comment", payload: { person, comment } });
+      };
 
   return (
       <PeopleContext.Provider
        value={{
         people: state.people,
-        addToFavoritePeople: addToFavoritePeople
+        addToFavoritePeople: addToFavoritePeople,
+        addComment:addComment
        }}
        >
            {props.children}
