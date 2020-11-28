@@ -37,33 +37,21 @@ bundle_app:
   script:
     - CI=false npm run build
 
-build_jobX:
-  stage: build
-  only:
-    - demobranch
-  script:
-    - echo "build job X on demoBranch works"
-
-exercise_job:
-  stage: exerciseJob
-  only:
-    - master
-  script:
-    - echo "build exercise_job"
-
 test_jobX:
   stage: test
   only:
-    - master
-    - demobranch2
+    - staging
   script:
-    - echo "test job X"
+    - echo "running cypress tests on staging branch"
 
 e2etest:    
     stage: test
+    only:
+    - staging
     before_script:
       - npm install -g http-server
       - npm install cypress
     script:
        # start the server in the background
+      - echo "running cypress tests on staging branch"
       - npm run start:ci
