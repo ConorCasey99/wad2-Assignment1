@@ -48,6 +48,7 @@ e2etest:
     stage: test
     only:
     - staging
+    - develop
     before_script:
       - npm install -g http-server
       - npm install cypress
