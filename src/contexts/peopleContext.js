@@ -10,7 +10,7 @@ const reducer = (state, action) => {
         people: state.people.map((m) =>
           m.id === action.payload.person.id ? { ...m, favoritePerson: true } : m
         ),
-        people: [...state.people],
+        people: [...state.people], 
       };
       case "load":
         return { people: action.payload.people };
@@ -33,7 +33,7 @@ const PeopleContextProvider = (props) => {
     const [state, dispatch] = useReducer(reducer, { people: [] });
 
     const addToFavoritePeople = (personId) => {
-      const index = state.people.map((p) => p.id).indexOf(personId);
+      const index = state.people.map((m) => m.id).indexOf(personId);
       dispatch({ type: "add-favorite-person", payload: { person: state.people[index] } });
     };
 
