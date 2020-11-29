@@ -1,7 +1,7 @@
 import React from "react";
 import "./personDetails.css";
 
-export default ({ person }) => {
+export default ({ person}) => {
   return (
     <>
       <h4>Overview</h4>
