@@ -1,7 +1,9 @@
 import React from "react";
 import "./movieDetails.css";
 
+// eslint-disable-next-line react-hooks/exhaustive-deps
 export default ({ movie }) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <>
       <h4>Overview</h4>

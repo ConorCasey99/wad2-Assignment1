@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getMovieReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
 export default ({ movie }) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
