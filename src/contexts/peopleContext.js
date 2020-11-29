@@ -10,7 +10,7 @@ const reducer = (state, action) => {
         people: state.people.map((m) =>
           m.id === action.payload.person.id ? { ...m, favoritePerson: true } : m
         ),
-        people: [...state.people], 
+       // people: [...state.people], 
       };
       case "load":
         return { people: action.payload.people };
@@ -21,7 +21,7 @@ const reducer = (state, action) => {
                 ? { ...p, comment: action.payload.comment }
                 : p
             ),
-            people: [...state.people],
+            //people: [...state.people],
           };
     default:
        return state;
