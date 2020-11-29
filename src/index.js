@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Redirect, Switch} from "react-router-dom" 
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import PersonPage from'./pages/personDetailsPage'
-import { BrowserRouter, Route, Redirect, Switch, /*Link*/ } from "react-router-dom"    // CHANGED
-import FavoriteMoviesPage from './pages/favoritesMoviesPage'       // NEW
+import FavoriteMoviesPage from './pages/favoritesMoviesPage'       
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader'
 import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
