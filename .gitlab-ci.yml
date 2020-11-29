@@ -34,7 +34,7 @@ bundle_app:
     paths:
       - build/ 
   script:
-    - CI=false npm run build
+      - npm run build
 
 test_jobX:
   stage: test
@@ -47,7 +47,6 @@ e2etest:
     stage: test
     only:
     - staging
-    - develop
     before_script:
       - npm install -g http-server
       - npm install cypress
