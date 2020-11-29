@@ -1,9 +1,7 @@
 import React from "react";
 import "./movieDetails.css";
-
-// eslint-disable-next-line react-hooks/exhaustive-deps
+// eslint-disable-next-line
 export default ({ movie }) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <>
       <h4>Overview</h4>
@@ -54,7 +52,7 @@ export default ({ movie }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch2" className="list-group-item list-group-item-dark">
+        <li key="pch" className="list-group-item list-group-item-dark">
           Production Countries
         </li>
         {movie.production_countries.map(pc => (

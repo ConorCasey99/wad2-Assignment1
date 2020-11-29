@@ -1,8 +1,8 @@
 import React from "react";
 import "./personDetails.css";
-// eslint-disable-next-line react-hooks/exhaustive-deps
+
+// eslint-disable-next-line
 export default ({ person}) => {
-// eslint-disable-next-line react-hooks/exhaustive-deps
   return (
     <>
       <h4>Overview</h4>
