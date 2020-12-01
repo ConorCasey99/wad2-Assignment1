@@ -15,7 +15,7 @@ const PersonHeader = ({ person, history }) => {
         <h2>
           {person.name}
           {"  "}
-          <a href={person.homepage}>
+          <a href={"/people/popular"}>
             <FontAwesomeIcon icon={["fas", "home"]} size="1x" />
           </a>
         </h2>

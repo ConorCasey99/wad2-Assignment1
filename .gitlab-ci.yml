@@ -36,13 +36,6 @@ bundle_app:
   script:
       - npm run build
 
-test_jobX:
-  stage: test
-  only:
-    - staging
-  script:
-    - echo "running cypress tests on staging branch"
-
 e2etest:    
     stage: test
     only:
