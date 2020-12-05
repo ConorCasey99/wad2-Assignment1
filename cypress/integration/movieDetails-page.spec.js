@@ -31,7 +31,7 @@ describe("Movie Details Page", () => {
   });
   
   beforeEach(() => {
-    cy.visit(`/`);
+    cy.visit(`/`), {failOnStatusCode: false};
     cy.get(".card").eq(2).find("img").click();
   });
 

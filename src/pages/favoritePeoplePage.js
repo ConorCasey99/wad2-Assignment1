@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import PeopleListPageTemplate from "../components/templatePeopleListPage";
-import AddCommentButton from '../components/buttons/addComment'
+import AddToFavoritePeopleButton from '../components/buttons/addToFavoritePeople'
 import {PeopleContext} from '../contexts/peopleContext'
 
 const FavoritePeoplePage = props => {
@@ -10,7 +10,7 @@ const FavoritePeoplePage = props => {
     <PeopleListPageTemplate
       people={favoritePeople}
       name={"Your Favorite People"}
-      action={person => <AddCommentButton person={person} />}
+      action={person => <AddToFavoritePeopleButton person={person} />}
     />
   );
 };

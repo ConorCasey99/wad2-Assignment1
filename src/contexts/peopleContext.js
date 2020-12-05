@@ -14,15 +14,6 @@ const reducer = (state, action) => {
       };
       case "load":
         return { people: action.payload.people };
-      case "add-comment":
-          return {
-             people: state.people.map((p) =>
-              p.id === action.payload.people.id
-                ? { ...p, comment: action.payload.comment }
-                : p
-            ),
-            //people: [...state.people],
-          };
     default:
        return state;
   }
@@ -44,16 +35,11 @@ const PeopleContextProvider = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-      const addComment = (person, comment) => {
-        dispatch({ type: "add-comment", payload: { person, comment } });
-      };
-
   return (
       <PeopleContext.Provider
        value={{
         people: state.people,
         addToFavoritePeople: addToFavoritePeople,
-        addComment:addComment
        }}
        >
            {props.children}
