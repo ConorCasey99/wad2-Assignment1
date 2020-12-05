@@ -28,7 +28,7 @@ describe("Navigation", () => {
 
   describe("From the home page", () => {
     beforeEach(() => {
-      cy.visit("/"), {failOnStatusCode: false};
+      cy.visit("/", {failOnStatusCode: false});
     });
     it("should navigate to the movie details page and change browser URL", () => {
       cy.get(".card").eq(1).find("img").click();

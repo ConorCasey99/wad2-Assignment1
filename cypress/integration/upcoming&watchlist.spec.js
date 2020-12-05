@@ -21,7 +21,7 @@ describe("Upcoming Page ", () => {
       })
   })
     beforeEach(() => {
-      cy.visit("/movies/upcoming"), {failOnStatusCode: false};
+      cy.visit("/movies/upcoming", {failOnStatusCode: false});
     });
   
     describe("Base test", () => {

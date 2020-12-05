@@ -31,7 +31,7 @@ describe("Person Details Page", () => {
   });
   
   beforeEach(() => {
-    cy.visit(`/people/popular`), {failOnStatusCode: false};
+    cy.visit(`/people/popular`, {failOnStatusCode: false});
     cy.wait(3000)
     cy.get(".card").eq(3).find("img").click();
   });

@@ -18,7 +18,7 @@ describe("Popular People Page ", () => {
       })
   })
     beforeEach(() => {
-      cy.visit("/people/popular"), {failOnStatusCode: false};
+      cy.visit("/people/popular", {failOnStatusCode: false});
     });
 
     describe("Base test", () => {
