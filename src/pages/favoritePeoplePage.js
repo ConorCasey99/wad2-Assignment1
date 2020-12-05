@@ -5,7 +5,7 @@ import {PeopleContext} from '../contexts/peopleContext'
 
 const FavoritePeoplePage = props => {
   const context = useContext(PeopleContext);
-  const favoritePeople = context.people.filter( m => m.people)
+  const favoritePeople = context.people.filter( m => m.favoritePerson)
   return (
     <PeopleListPageTemplate
       people={favoritePeople}
