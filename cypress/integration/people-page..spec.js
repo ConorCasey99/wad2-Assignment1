@@ -18,17 +18,21 @@ describe("Popular People Page ", () => {
       })
   })
     beforeEach(() => {
-      cy.visit("/people/popular", {failOnStatusCode: false});
+      cy.visit("/");
     });
 
     describe("Base test", () => {
         it("displays page header", () => {
+          cy.get("nav").find("li").eq(4).find("a").click();
+          cy.url().should("include", `/people/popular`);
           cy.get("h2").contains("Popular People No");
           cy.get(".badge").contains(20);
         });
 
         describe("Filtering", () => {
             it("should only display people with the specified title substring", () => {
+              cy.get("nav").find("li").eq(4).find("a").click();
+              cy.url().should("include", `/people/popular`);
               let searchString = "o";
               let matchingPeople = filterByName(people, searchString);
               cy.get("input").clear().type(searchString); // Enter o in text box

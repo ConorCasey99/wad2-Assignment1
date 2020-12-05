@@ -21,7 +21,7 @@ describe("Home Page ", () => {
       })
   })
     beforeEach(() => {
-      cy.visit("/", {failOnStatusCode: false});
+      cy.visit("/");
     });
   
     describe("Base test", () => {

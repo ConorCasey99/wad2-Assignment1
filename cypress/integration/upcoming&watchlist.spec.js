@@ -21,11 +21,13 @@ describe("Upcoming Page ", () => {
       })
   })
     beforeEach(() => {
-      cy.visit("/movies/upcoming", {failOnStatusCode: false});
+      cy.visit("/");
     });
   
     describe("Base test", () => {
       it("displays page header", () => {
+        cy.get("nav").find("li").eq(2).find("a").click();
+        cy.url().should("include", `/upcoming`);
         cy.get("h2").contains("No. Movies");
         cy.get(".badge").contains(20);
       });
@@ -33,6 +35,8 @@ describe("Upcoming Page ", () => {
         it("should only display movies with the specified title substring", () => {
           let searchString = "o";
           let matchingMovies = filterByTitle(movies, searchString);
+          cy.get("nav").find("li").eq(2).find("a").click();
+          cy.url().should("include", `/upcoming`);
           cy.get("input").clear().type(searchString); // Enter m in text box
           cy.get(".card").should("have.length", matchingMovies.length);
           // Do a second test for certainty!
@@ -52,6 +56,8 @@ describe("Upcoming Page ", () => {
             const selectedGenreId = 35;
             const selectedGenreText = "Comedy";
             const matchingMovies = filterByGenre(movies, selectedGenreId);
+            cy.get("nav").find("li").eq(2).find("a").click();
+            cy.url().should("include", `/upcoming`);
             cy.get("select").select(selectedGenreText); 
             cy.get(".card").should("have.length", matchingMovies.length);
             cy.get(".card").each(($card, index) => {
@@ -67,6 +73,8 @@ describe("Upcoming Page ", () => {
               const selectedGenreId = 35;
               const selectedGenreText = "Comedy";
               const matchingMovies = filterByTitle(movies, searchString) && filterByGenre(movies, selectedGenreId);
+              cy.get("nav").find("li").eq(2).find("a").click();
+              cy.url().should("include", `/upcoming`);
               cy.get("input").clear().type(searchString);
               cy.get("select").select(selectedGenreText);
               cy.get(".card").should("have.length", matchingMovies.length);
@@ -79,17 +87,21 @@ describe("Upcoming Page ", () => {
           });
           describe("add to watchlist", () => {
             it("watchlist button should add movies to the watchlist", () => {
+                cy.get("nav").find("li").eq(2).find("a").click();
+                cy.url().should("include", `/upcoming`);
                 cy.get(".card").eq(0).find("button").click();
                 cy.get(".card").eq(1).find("button").click();
                 cy.get(".card").eq(2).find("button").click();
                 cy.get(".card").eq(3).find("button").click();
                 cy.get(".card").eq(4).find("button").click();
-                cy.get("nav").find("li").eq(2).find("a").click();
+                cy.get("nav").find("li").eq(3).find("a").click();
                 cy.url().should("include", `/movies/watchlist`);
                 cy.get("h2").contains("Your watchlist");
                 cy.get(".badge").contains(5);
             });
             it("watchlist should allow for filtering", () => {
+              cy.get("nav").find("li").eq(2).find("a").click();
+              cy.url().should("include", `/upcoming`);
               cy.get(".card").eq(0).find("button").click();
               cy.get(".card").eq(1).find("button").click();
               cy.get(".card").eq(2).find("button").click();
@@ -100,7 +112,7 @@ describe("Upcoming Page ", () => {
               const selectedGenreText = "Adventure";
               cy.get("input").clear().type(searchString);
               cy.get("select").select(selectedGenreText);
-              cy.get(".card").should("have.length", 3);
+              cy.get(".card").should("have.length", 2);
               }); 
         });
       });

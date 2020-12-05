@@ -31,16 +31,21 @@ describe("Person Details Page", () => {
   });
   
   beforeEach(() => {
-    cy.visit(`/people/popular`, {failOnStatusCode: false});
-    cy.wait(3000)
-    cy.get(".card").eq(3).find("img").click();
+    cy.visit(`/`);    
   });
 
   it("should display Person name in the page header", () => {
+    cy.get("nav").find("li").eq(4).find("a").click();
+    cy.url().should("include", `/people/popular`);
+    cy.wait(3000)
+    cy.get(".card").eq(3).find("img").click();
     cy.get("h2").contains(person.name);
   });
 
   it("should display the person's details", () => {
+    cy.get("nav").find("li").eq(4).find("a").click();
+    cy.url().should("include", `/people/popular`);
+    cy.get(".card").eq(3).find("img").click();
     cy.get("h4").contains("Overview");
     cy.get("ul")
       .eq(1)
@@ -65,6 +70,9 @@ describe("Person Details Page", () => {
     });
 
       it("should display the Home icon with the correct URL value", () => {
+        cy.get("nav").find("li").eq(4).find("a").click();
+        cy.url().should("include", `/people/popular`);
+        cy.get(".card").eq(3).find("img").click();
         cy.get(".fa-home")
           .parent()
           .should("have.attr", "href")
@@ -72,6 +80,9 @@ describe("Person Details Page", () => {
       });
 
       it("should display person poster", () => {
+        cy.get("nav").find("li").eq(4).find("a").click();
+        cy.url().should("include", `/people/popular`);
+        cy.get(".card").eq(3).find("img").click();
         cy.get(".person")
         .should("have.attr", "src");
     });
