@@ -26,12 +26,13 @@ export default ({ person }) => {
           {person.birthday}
         </li>
         <li key="rdh" className="list-group-item list-group-item-dark">
-          gender
+          Gender
         </li>
         <li key="rdv" className="list-group-item ">
           {person.gender}
         </li>
         <li key="rdh" className="list-group-item list-group-item-dark">
+          Place of Birth
         </li>
         <li key="rdv" className="list-group-item ">
           {person.place_of_birth}
