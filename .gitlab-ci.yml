@@ -46,5 +46,4 @@ e2etest:
       - npm install cypress
     script:
        # start the server in the background
-      - echo "running cypress tests on staging branch"
       - npm run start:ci

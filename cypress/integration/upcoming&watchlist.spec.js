@@ -20,9 +20,9 @@ describe("Upcoming Page ", () => {
         movies = response.results
       })
   })
-    beforeEach(() => {
-      cy.visit("/");
-    });
+  beforeEach(() => {
+    cy.visit(`/`);
+  });
   
     describe("Base test", () => {
       it("displays page header", () => {

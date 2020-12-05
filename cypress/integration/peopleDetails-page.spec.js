@@ -31,7 +31,7 @@ describe("Person Details Page", () => {
   });
   
   beforeEach(() => {
-    cy.visit(`/`);    
+    cy.visit(`/`);
   });
 
   it("should display Person name in the page header", () => {

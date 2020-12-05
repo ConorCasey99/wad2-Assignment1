@@ -17,9 +17,9 @@ describe("Popular People Page ", () => {
         people = response.results
       })
   })
-    beforeEach(() => {
-      cy.visit("/");
-    });
+  beforeEach(() => {
+    cy.visit(`/`);
+  });
 
     describe("Base test", () => {
         it("displays page header", () => {
