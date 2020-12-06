@@ -49,9 +49,10 @@ describe("Navigation", () => {
       cy.get("h2").contains("No. Movies");
     });
   });
+
     describe("From the Movie Details page ", () => {
         beforeEach(() => {
-          cy.visit(`/movies/${movieId}`);
+          cy.visit(`/movies/${movieId}`, {failOnStatusCode: false});
         });
         it("should change browser URL when show/hide reviews is clicked", () => {
           cy.wait(3000)
@@ -70,10 +71,11 @@ describe("Navigation", () => {
       });
 
 
-  describe("From the Favorites page", () => {
+  describe("From the home page", () => {
     beforeEach(() => {
       cy.visit("/");
     });
+
     it("should navigate to the movies detail page and change the browser URL", () => {
       cy.get(".card").eq(0).find("img").click();
       cy.url().should("include", `/movies/${movies[0].id}`);

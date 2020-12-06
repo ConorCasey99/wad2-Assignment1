@@ -17,6 +17,7 @@ describe("Popular People Page ", () => {
         people = response.results
       })
   })
+  
   beforeEach(() => {
     cy.visit(`/`);
   });
