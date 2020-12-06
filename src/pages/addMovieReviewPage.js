@@ -1,13 +1,13 @@
 import React from "react";
-import PageTemplate from "../components/templateMoviePage";
+import PageTemplate from "../components/templateTvShowPage";
 import ReviewForm from '../components/reviewForm'
 
-const ReviewFormPage = props => {
+const TvShowReviewFormPage = props => {
 
   return (
-      <PageTemplate movie={props.location.state.movie}>
-          <ReviewForm movie={props.location.state.movie} />
+      <PageTemplate tvShow={props.location.state.tvShow}>
+          <ReviewForm tvShow={props.location.state.tvShow} />
       </PageTemplate>
   );
 };
-export default ReviewFormPage;
+export default TvShowReviewFormPage;

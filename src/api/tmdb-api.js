@@ -70,6 +70,16 @@ export const getMovies = () => {
   
   export const getTvShow = id => {
     return fetch(
-      `https://api.themoviedb.org/3/tv/{tv_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
     ).then(res => res.json());
+  };
+
+  export const getTvShowGenres = () => {
+    return fetch(
+      "https://api.themoviedb.org/3/genre/tv/list?api_key" +
+        process.env.REACT_APP_TMDB_KEY +
+        "language=en-US"
+    )
+      .then(res => res.json())
+      .then(json => json.genres);
   };
