@@ -12,7 +12,7 @@ describe("Movie Details Page", () => {
     )
       .its("body")
       .then((response) => {
-        return response.results[2].id;
+        return response.results[1].id;
       })
       .then((arbitraryMovieIdignored) => {
         movieId = arbitraryMovieIdignored
@@ -32,7 +32,8 @@ describe("Movie Details Page", () => {
   
   beforeEach(() => {
     cy.visit(`/`);
-    cy.get(".card").eq(2).find("img").click();
+    cy.wait(3000)
+    cy.get(".card").eq(1).find("img").click();
   });
 
   it("should display movie title in the page header", () => {
