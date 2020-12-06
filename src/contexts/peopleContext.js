@@ -13,15 +13,14 @@ const reducer = (state, action) => {
        // people: [...state.people], 
       };
       case "load":
-        return { people: action.payload.people };
+        return { people: action.payload.people};
     default:
        return state;
   }
 };
 
-
 const PeopleContextProvider = (props) => {
-    const [state, dispatch] = useReducer(reducer, { people: [] });
+    const [state, dispatch] = useReducer(reducer, { people: []});
 
     const addToFavoritePeople = (personId) => {
       const index = state.people.map((m) => m.id).indexOf(personId);

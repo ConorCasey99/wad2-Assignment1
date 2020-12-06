@@ -46,8 +46,30 @@ export const getMovies = () => {
       .then(json => json.results);
   };
 
+  export const getLatestPeople = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/person/latest?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+
   export const getPerson = id => {
     return fetch(
       `https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+    ).then(res => res.json());
+  };
+
+  export const getTvShows = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&sort_by=popularity.desc&page=1`
+    )
+      .then(res => res.json())
+      .then(json => json.results);
+  };
+  
+  export const getTvShow = id => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/{tv_id}?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     ).then(res => res.json());
   };

@@ -17,7 +17,6 @@ import peopleListPage from './pages/peopleListPage';
 import watchlistPage from './pages/watchlistPage';
 import favoritePeoplePage from './pages/favoritePeoplePage';
 
-
 const App = () => {
   return (
       <BrowserRouter>

@@ -1,7 +1,7 @@
 let movies;
 const movieId = 497582; // Enola Holmes movie id
-let reviews;
 const reviewId = '5f69e4d0cee2f6003633becf'// The id of the top review
+let reviews;
 
 describe("Navigation", () => {
   before(() => {
@@ -52,21 +52,21 @@ describe("Navigation", () => {
 
     describe("From the Movie Details page ", () => {
         beforeEach(() => {
-          cy.visit(`/movies/${movieId}`, {failOnStatusCode: false});
+          cy.visit(`/`);
+          cy.get(".card").eq(1).find("img").click();
         });
         it("should change browser URL when show/hide reviews is clicked", () => {
           cy.wait(3000)
           cy.contains("Show Reviews").click();
-          cy.url().should("include", `/movies/${movieId}/reviews`);
+          cy.url().should("include", `/reviews`);
           cy.contains("Hide Reviews").click();
-          cy.url().should("not.include", `/movies/${movieId}/reviews`);
+          cy.url().should("not.include", `/reviews`);
         });
         it("navigate to the full review page when a 'Full Review' link is clicked", () => {
           cy.contains("Show Reviews").click();
-          cy.url().should("include", `/movies/${movieId}/reviews`);
+          cy.url().should("include", `/reviews`);
           cy.contains("Full Review").click();
-          cy.url().should("include", `/reviews/${reviewId}`);
-        
+          cy.url().should("include", `/reviews`);
         });
       });
 
