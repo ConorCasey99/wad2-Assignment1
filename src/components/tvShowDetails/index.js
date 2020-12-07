@@ -61,6 +61,26 @@ export default ({ tvShow }) => {
           </li>
         ))}
       </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="pch" className="list-group-item list-group-item-dark">
+          Seasons
+        </li>
+        {tvShow.seasons.map(pc => (
+          <li key={pc.name, pc.episode_count, pc.overview} className="list-group-item">
+            {pc.name} 
+          </li>
+        ))}
+      </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="pch" className="list-group-item list-group-item-dark">
+          Overview
+        </li>
+        {tvShow.seasons.map(pc => (
+          <li key={pc.overview} className="list-group-item">
+            {pc.overview} 
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
