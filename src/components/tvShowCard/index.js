@@ -16,7 +16,7 @@ const TvShowCard = ({tvShow, action}) => {
           src={
             tvShow.poster_path
               ? `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`
-              : "./film-poster-placeholder.png"
+              : "./tv-poster-placeholder.png"
           }
         />
         </Link>

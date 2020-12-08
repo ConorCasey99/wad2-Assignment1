@@ -8,7 +8,7 @@ const reducer = (state, action) => {
     case "add-favorite-tvShow":
         return {
           tvShows: state.tvShows.map((m) =>
-            m.id === action.payload.tvShow.id ? { ...m, favorite: true } : m
+            m.id === action.payload.tvShow.id ? { ...m, favoriteTvShow: true } : m
           ),
         };
     case "load":
@@ -20,6 +20,7 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
+        tvShows: [...state.tvShows]
       };
     default:
       return state;
@@ -35,7 +36,7 @@ const TvShowsContextProvider = (props) => {
   };
 
   const addTvShowReview = (tvShow, review) => {
-    dispatch({ type: "add-tvShowReview", payload: { tvShow, review } });
+    dispatch({ type: "add-TvShowReview", payload: { tvShow, review } });
   };
 
   useEffect(() => {

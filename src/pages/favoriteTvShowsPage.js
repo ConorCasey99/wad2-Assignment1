@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
 import TvShowListPageTemplate from "../components/templateTvShowListPage";
-import AddTvShowReviewButton from '../components/buttons/addReview'
+import AddTvShowReviewButton from '../components/buttons/addTvShowReview'
 import {TvShowsContext} from '../contexts/tvShowsContext'
 
-const FavoriteTvShowsPage = props => {
+const FavoriteTvShowsPage = ()=> {
   const context = useContext(TvShowsContext);
-  const favorites = context.tvShows.filter( m => m.favorite )
+  const favoriteTvShows = context.tvShows.filter( m => m.favoriteTvShow )
   return (
     <TvShowListPageTemplate
-      tvShows={favorites}
-      title={"Favorite Tv Shows"}
+      tvShows={favoriteTvShows}
+      name={"Favorite Tv Shows"}
       action={tvShow => <AddTvShowReviewButton tvShow={tvShow} />}
     />
   );

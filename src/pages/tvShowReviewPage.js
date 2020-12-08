@@ -1,5 +1,5 @@
 import React from "react";
-import PageTemplate from '../components/templateTvShowPage'
+import PageTemplate from '../components/templateTvShowPage';
 import TvShowReview from "../components/tvShowReview";
 
 const TvShowReviewPage = (props) => {

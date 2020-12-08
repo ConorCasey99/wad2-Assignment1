@@ -10,7 +10,7 @@ const TvShowReviewForm = ({ tvShow, history }) => {
 
   const onSubmit = data => {
     context.addTvShowReview(tvShow, data)
-    history.push("/tvShow/favoriteTvShows");
+    history.push("/tvShows/favorites");
   };
 
   return (

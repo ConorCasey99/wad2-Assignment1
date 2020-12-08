@@ -6,7 +6,7 @@ import {TvShowsContext} from '../contexts/tvShowsContext'
 const TvShowListPage = () => {
   const context = useContext(TvShowsContext);
   const tvShows = context.tvShows.filter((m) => {  // New
-    return !("favorite" in m);
+    return !("favoriteTvShow" in m);
   });
 
   return (
