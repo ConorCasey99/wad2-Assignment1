@@ -21,6 +21,7 @@ import watchlistPage from './pages/watchlistPage';
 import favoritePeoplePage from './pages/favoritePeoplePage';
 import PopularShowsPage from './pages/tvShowListPage';
 import AddTvShowReviewPage from './pages/addTvShowReviewPage';
+import FavoriteTvShowsPage from './pages/favoriteTvShowsPage';
 
 const App = () => {
   return (
@@ -41,6 +42,7 @@ const App = () => {
                     <Route exact path="/people/favorites" component={favoritePeoplePage} />
                     <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                     <Route exact path="/tvShows/popular" component={PopularShowsPage} />
+                    <Route exact path="/tvShows/favorites" component={FavoriteTvShowsPage} />
                     <Route exact path="/tvShowReviews/:id" component={TvShowReviewPage} />
                     <Route exact path="/people/popular" component={peopleListPage} />
                     <Route path="/people/:id" component={PersonPage}/>
