@@ -36,12 +36,12 @@ const App = () => {
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
                   <Route exact path="/tvShowReviews/tvShowReviewForm" component={AddTvShowReviewPage} />
                     <Route path="/reviews/:id" component={MovieReviewPage} />
-                    <Route path="/tvShowReviews/:id" component={TvShowReviewPage} />
                     <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
                     <Route exact path="/movies/watchlist" component={watchlistPage} />
                     <Route exact path="/people/favorites" component={favoritePeoplePage} />
                     <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                     <Route exact path="/tvShows/popular" component={PopularShowsPage} />
+                    <Route exact path="/tvShowReviews/:id" component={TvShowReviewPage} />
                     <Route exact path="/people/popular" component={peopleListPage} />
                     <Route path="/people/:id" component={PersonPage}/>
                     <Route path="/tvShow/:id" component={TvShowPage} />

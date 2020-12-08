@@ -2,18 +2,18 @@ import React from "react";
 import { Link, Route, withRouter } from "react-router-dom";
 import TvShowDetails from "../components/tvShowDetails";
 import PageTemplate from "../components/templateTvShowPage";
-import TvShowReviews from "../components/tvShowReview";
+import TvShowReviews from "../components/tvShowReviews";
 import useTvShow from "../hooks/useTvShow";
 
 const TvShowPage = props => {
   const { id } = props.match.params;
-  const [tvShow] = useTvShow(id)  // NEW
+  const [show] = useTvShow(id)  // NEW
   return (
     <>
-    {tvShow ? (
+    {show ? (
       <>
-        <PageTemplate tvShow={tvShow}>
-          <TvShowDetails tvShow={tvShow} />
+        <PageTemplate tvShow={show}>
+          <TvShowDetails tvShow={show} />
         </PageTemplate>
         <div className="row">
           <div className="col-12 ">
@@ -36,7 +36,7 @@ const TvShowPage = props => {
         </div>
         <Route
           path={`/tvShow/:id/reviews`}
-          render={props => <TvShowReviews tvShow={tvShow} {...props} />}
+          render={props => <TvShowReviews tvShow={show} {...props} />}
         />
       </>
     ) : (

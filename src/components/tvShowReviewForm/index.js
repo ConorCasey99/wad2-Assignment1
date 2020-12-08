@@ -1,12 +1,12 @@
 import React, {useContext } from "react";
 import "./tvShowReviewForm.css";
 import useForm from "react-hook-form";
-import {TvShowContext} from '../../contexts/tvShowsContext'
+import {TvShowsContext} from '../../contexts/tvShowsContext'
 import { withRouter } from "react-router-dom";
 
 const TvShowReviewForm = ({ tvShow, history }) => {
   const { register, handleSubmit, errors, reset } = useForm();
-  const context = useContext(TvShowContext);
+  const context = useContext(TvShowsContext);
 
   const onSubmit = data => {
     context.addTvShowReview(tvShow, data)
