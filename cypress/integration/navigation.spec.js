@@ -53,7 +53,7 @@ describe("Navigation", () => {
     describe("From the Movie Details page ", () => {
         beforeEach(() => {
           cy.visit(`/`);
-          cy.get(".card").eq(1).find("img").click();
+          cy.get(".card").eq(2).find("img").click();
         });
         it("should change browser URL when show/hide reviews is clicked", () => {
           cy.wait(3000)
@@ -88,7 +88,7 @@ describe("Navigation", () => {
         });
         it("should navigate from home page to movie details and back", () => {
           cy.get(".card").eq(0).find("img").click();
-          cy.get("svg[data-icon=arrow-circle-left]").click();
+          cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
           cy.url().should("not.include", `/movies`);
           cy.get("h2").contains("No. Movies");
         });
@@ -99,7 +99,7 @@ describe("Navigation", () => {
             cy.url().should("include", `/favorites`);
             cy.get("h2").contains("Favorite Movies");
             cy.get(".card").eq(0).find("img").click();
-            cy.get("svg[data-icon=arrow-circle-left]").click();
+            cy.get("svg[data-icon=arrow-circle-left]").click({force: true});
             cy.get("h2").contains("Favorite Movies");
         });
       });

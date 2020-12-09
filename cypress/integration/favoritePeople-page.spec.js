@@ -28,7 +28,7 @@ describe("Favorite People Page ", () => {
         cy.get("nav").find("li").eq(4).find("a").click();
         cy.url().should("include", `/people`);
         cy.get("h2").contains("Popular People No.");
-        cy.wait(3000)
+        cy.wait(6000)
         cy.get(".badge").contains(20);
       });
           describe("add to Favorite people list", () => {
@@ -55,10 +55,12 @@ describe("Favorite People Page ", () => {
               cy.get(".card").eq(2).find("button").click();
               cy.get(".card").eq(3).find("button").click();
               cy.get(".card").eq(4).find("button").click();
+              cy.get(".card").eq(5).find("button").click();
+              cy.get(".card").eq(6).find("button").click();
               cy.get("nav").find("li").eq(5).find("a").click();
-              const searchString = "d";
+              const searchString = "e";
               cy.get("input").clear().type(searchString);
-              cy.get(".card").should("have.length", 2);
+              cy.get(".card").should("have.length", 5);
               }); 
         });
       });
