@@ -66,7 +66,7 @@ export default ({ tvShow }) => {
           Seasons
         </li>
         {tvShow.seasons.map(pc => (
-          <li key={pc.name, pc.episode_count, pc.overview} className="list-group-item">
+          <li key={pc.name} className="list-group-item">
             {pc.name} 
           </li>
         ))}
