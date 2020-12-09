@@ -20,7 +20,7 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
-        tvShows: [...state.tvShows]
+        //tvShows: [...state.tvShows]
       };
     default:
       return state;
