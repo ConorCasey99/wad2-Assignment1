@@ -52,7 +52,7 @@ export default ({ tvShow }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
+        <li key="pcg" className="list-group-item list-group-item-dark">
           Production Countries
         </li>
         {tvShow.production_countries.map(pc => (
@@ -62,7 +62,7 @@ export default ({ tvShow }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
+        <li key="pci" className="list-group-item list-group-item-dark">
           Seasons
         </li>
         {tvShow.seasons.map(pc => (
@@ -72,7 +72,7 @@ export default ({ tvShow }) => {
         ))}
       </ul>
       <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
+        <li key="pcj" className="list-group-item list-group-item-dark">
           Overview
         </li>
         {tvShow.seasons.map(pc => (
