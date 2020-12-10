@@ -31,17 +31,21 @@ describe("TvShow Details Page", () => {
   });
   
   beforeEach(() => {
-    cy.visit(`/tvShows/popular`);
+    cy.visit(`/`);
     cy.wait(6000)
-    cy.get(".card").eq(1).find("img").click();
   });
 
   it("should display tvShow name in the page header", () => {
-    
+    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get(".card").eq(1).find("img").click();
+    cy.wait(6000)
     cy.get("h2").contains(tvShow.name);
   });
 
   it("should display the tvShow's details", () => {
+    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get(".card").eq(1).find("img").click();
+    cy.wait(6000)
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(tvShow.overview);
     cy.get("ul")
@@ -91,6 +95,9 @@ describe("TvShow Details Page", () => {
     });
 
       it("should display the Home icon with the correct URL value", () => {
+        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".card").eq(1).find("img").click();
+        cy.wait(6000)
         cy.get(".fa-home")
           .parent()
           .should("have.attr", "href")
@@ -98,6 +105,9 @@ describe("TvShow Details Page", () => {
       });
 
       it("should display tvShow poster", () => {
+        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".card").eq(1).find("img").click();
+        cy.wait(6000)
         cy.get(".tvShow")
         .should("have.attr", "src");
     });

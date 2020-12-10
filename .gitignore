@@ -24,3 +24,10 @@ yarn-error.log*
 
 # Cypress Dashboard videos
 /cypress/videos
+cypress/videos/favoritePeople-page.spec.js.mp4
+cypress/videos/home-page.spec.js.mp4
+cypress/videos/movieDetails-page.spec.js.mp4
+cypress/videos/navigation.spec.js.mp4
+cypress/videos/people-page..spec.js.mp4
+cypress/videos/peopleDetails-page.spec.js.mp4
+cypress/videos/upcoming&watchlist.spec.js.mp4
