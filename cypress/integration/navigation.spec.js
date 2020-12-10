@@ -53,7 +53,7 @@ describe("Navigation", () => {
     describe("From the Movie Details page ", () => {
         beforeEach(() => {
           cy.visit(`/`);
-          cy.get(".card").eq(2).find("img").click();
+          cy.get(".card").eq(1).find("img").click();
         });
         it("should change browser URL when show/hide reviews is clicked", () => {
           cy.wait(3000)
@@ -65,7 +65,6 @@ describe("Navigation", () => {
         it("navigate to the full review page when a 'Full Review' link is clicked", () => {
           cy.contains("Show Reviews").click();
           cy.url().should("include", `/reviews`);
-          cy.wait(3000)
           cy.contains("Full Review").click();
           cy.url().should("include", `/reviews`);
         });

@@ -65,7 +65,7 @@ describe("Home Page ", () => {
           }); 
           describe("by genre and title", () => {
             it("should display movies with the specified genre and title only", () => {
-              const searchString = "e";
+              const searchString = "a";
               const selectedGenreId = 16;
               const selectedGenreText = "Animation";
               const matchingMovies = filterByTitle(movies, searchString) && filterByGenre(movies, selectedGenreId);
