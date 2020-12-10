@@ -1,27 +1,52 @@
-import React from "react";
+import React, {lazy,Suspense} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch} from "react-router-dom" 
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import HomePage from "./pages/homePage";
-import MoviePage from './pages/movieDetailsPage'
-import PersonPage from'./pages/personDetailsPage'
-import TvShowPage from './pages/tvShowDetailsPage'
-import FavoriteMoviesPage from './pages/favoritesMoviesPage'       
-import MovieReviewPage from "./pages/movieReviewPage";
-import TvShowReviewPage from "./pages/tvShowReviewPage"
+
 import SiteHeader from './components/siteHeader'
-import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
-import MoviesContextProvider from "./contexts/moviesContext";
-import PeopleContextProvider from "./contexts/peopleContext";
-import GenresContextProvider from "./contexts/genresContext";
-import TvShowsContextProvider from "./contexts/tvShowsContext";
-import AddMovieReviewPage from './pages/addMovieReviewPage';
-import peopleListPage from './pages/peopleListPage';
-import watchlistPage from './pages/watchlistPage';
-import favoritePeoplePage from './pages/favoritePeoplePage';
-import PopularShowsPage from './pages/tvShowListPage';
-import AddTvShowReviewPage from './pages/addTvShowReviewPage';
-import FavoriteTvShowsPage from './pages/favoriteTvShowsPage';
+//import MoviesContextProvider from "./contexts/moviesContext";
+//import PeopleContextProvider from "./contexts/peopleContext";
+//import GenresContextProvider from "./contexts/genresContext";
+//import TvShowsContextProvider from "./contexts/tvShowsContext";
+
+//import HomePage from "./pages/homePage";
+const HomePage = lazy(() => import("./pages/homePage"));
+const MoviePage = lazy(() => import("./pages/movieDetailsPage"));
+const PersonPage = lazy(() => import("./pages/personDetailsPage"));
+const TvShowPage = lazy(() => import("./pages/tvShowDetailsPage"));
+const FavoriteMoviesPage = lazy(() => import("./pages/favoritesMoviesPage"));
+const MovieReviewPage = lazy(() => import("./pages/movieReviewPage"));
+const TvShowReviewPage = lazy(() => import("./pages/tvShowReviewPage"));
+//const SiteHeader = lazy(() => import("./components/siteHeader"));
+const UpcomingMoviesPage = lazy(() => import("./pages/UpcomingMoviesPage"));
+const MoviesContextProvider = lazy(() => import("./contexts/moviesContext"));
+const PeopleContextProvider = lazy(() => import("./contexts/peopleContext"));
+const GenresContextProvider = lazy(() => import("./contexts/genresContext"));
+const TvShowsContextProvider = lazy(() => import("./contexts/tvShowsContext"));
+const AddMovieReviewPage = lazy(() => import("./pages/addMovieReviewPage"));
+const peopleListPage = lazy(() => import("./pages/peopleListPage"));
+const watchlistPage = lazy(() => import("./pages/watchlistPage"));
+const favoritePeoplePage = lazy(() => import("./pages/favoritePeoplePage"));
+const PopularShowsPage = lazy(() => import("./pages/tvShowListPage"));
+const AddTvShowReviewPage = lazy(() => import("./pages/addTvShowReviewPage"));
+const FavoriteTvShowsPage = lazy(() => import("./pages/favoriteTvShowsPage"));
+
+//import MoviePage from './pages/movieDetailsPage'
+//import PersonPage from'./pages/personDetailsPage'
+//import TvShowPage from './pages/tvShowDetailsPage'
+//import FavoriteMoviesPage from './pages/favoritesMoviesPage'       
+//import MovieReviewPage from "./pages/movieReviewPage";
+//import TvShowReviewPage from "./pages/tvShowReviewPage"
+
+//import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
+
+//import AddMovieReviewPage from './pages/addMovieReviewPage';
+//import peopleListPage from './pages/peopleListPage';
+//import watchlistPage from './pages/watchlistPage';
+//import favoritePeoplePage from './pages/favoritePeoplePage';
+//import PopularShowsPage from './pages/tvShowListPage';
+//import AddTvShowReviewPage from './pages/addTvShowReviewPage';
+//import FavoriteTvShowsPage from './pages/favoriteTvShowsPage';
 
 const App = () => {
   return (
@@ -29,6 +54,7 @@ const App = () => {
         <div className="jumbotron">
           <SiteHeader />     
             <div className="container-fluid">
+            <Suspense fallback={<h1>Loading page....</h1>}>
               <MoviesContextProvider> 
                 <PeopleContextProvider>
                 <TvShowsContextProvider>
@@ -54,7 +80,8 @@ const App = () => {
                 </GenresContextProvider>
                 </TvShowsContextProvider>
                 </PeopleContextProvider>
-              </MoviesContextProvider>     
+              </MoviesContextProvider>   
+              </Suspense>  
            </div>
         </div>
       </BrowserRouter>
