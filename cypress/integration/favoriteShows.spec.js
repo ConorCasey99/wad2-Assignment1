@@ -20,11 +20,12 @@ describe("Favorite TvShows Page ", () => {
   })
 
   beforeEach(() => {
-    cy.visit(`/tvShows/popular`);
+    cy.visit(`/`);
   });
   
     describe("Base test", () => {
       it("displays page header", () => {
+        cy.get("nav").find("li").eq(6).find("a").click();
         cy.url().should("include", `/tvShows`);
         cy.get("h2").contains("Popular TvShows No.");
         cy.wait(6000)
@@ -32,6 +33,7 @@ describe("Favorite TvShows Page ", () => {
       });
           describe("add to Favorite tvShow list", () => {
             it("Add to favorites button should add TvShows to the favorites", () => {
+                cy.get("nav").find("li").eq(6).find("a").click();
                 cy.url().should("include", `/tvShows`);
                 cy.wait(3000)
                 cy.get(".card").eq(0).find("button").click();
