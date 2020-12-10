@@ -23,6 +23,7 @@ describe("Popular TvShows Page ", () => {
   
   beforeEach(() => {
     cy.visit(`/`);
+    cy.wait(5000)
   });
   
     describe("Base test", () => {
@@ -34,8 +35,9 @@ describe("Popular TvShows Page ", () => {
       });
       describe("Filtering", () => {
         it("should only display movies with the specified name substring", () => {
-          let searchString = "o";
+          let searchString = "a";
           let matchingTvShows = filterByName(tvShows, searchString);
+          cy.get("nav").find("li").eq(6).find("a").click();
           cy.get("input").clear().type(searchString); // Enter m in text box
           cy.get(".card").should("have.length", matchingTvShows.length);
           // Do a second test for certainty!
@@ -52,8 +54,8 @@ describe("Popular TvShows Page ", () => {
       });
         describe("By tvshow genre", () => {
           it("should display tvshows with the specified genre only", () => {
-            const selectedGenreId = 35;
-            const selectedGenreText = "Comedy";
+            const selectedGenreId =  18;
+            const selectedGenreText = "Drama";
             const matchingTvShows = filterByGenre(tvShows, selectedGenreId);
             cy.get("nav").find("li").eq(6).find("a").click();
             cy.get("select").select(selectedGenreText); 
@@ -67,9 +69,9 @@ describe("Popular TvShows Page ", () => {
           }); 
           describe("by genre and name", () => {
             it("should display tvShows with the specified genre and name only", () => {
-              const searchString = "t";
-              const selectedGenreId = 35;
-              const selectedGenreText = "Comedy";
+              const searchString = "a";
+              const selectedGenreId = 37;
+              const selectedGenreText = "Western";
               const matchingTvShows = filterByName(tvShows, searchString) && filterByGenre(tvShows, selectedGenreId);
               cy.get("nav").find("li").eq(6).find("a").click();
               cy.get("input").clear().type(searchString);

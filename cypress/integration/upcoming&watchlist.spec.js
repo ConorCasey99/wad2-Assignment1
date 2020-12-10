@@ -70,9 +70,9 @@ describe("Upcoming Page ", () => {
           }); 
           describe("by genre and title", () => {
             it("should display movies with the specified genre and title only", () => {
-              const searchString = "a";
-              const selectedGenreId = 10749;
-              const selectedGenreText = "Romance";
+              const searchString = "e";
+              const selectedGenreId = 28;
+              const selectedGenreText = "Action";
               const matchingMovies = filterByTitle(movies, searchString) && filterByGenre(movies, selectedGenreId);
               cy.get("nav").find("li").eq(2).find("a").click();
               cy.url().should("include", `/upcoming`);

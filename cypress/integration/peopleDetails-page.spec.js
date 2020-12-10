@@ -12,7 +12,7 @@ describe("Person Details Page", () => {
     )
       .its("body")
       .then((response) => {
-        return response.results[3].id;
+        return response.results[2].id;
       })
       .then((arbitraryPersonIdignored) => {
         personId = arbitraryPersonIdignored
@@ -38,14 +38,14 @@ describe("Person Details Page", () => {
     cy.get("nav").find("li").eq(4).find("a").click();
     cy.url().should("include", `/people/popular`);
     cy.wait(3000)
-    cy.get(".card").eq(3).find("img").click();
+    cy.get(".card").eq(2).find("img").click();
     cy.get("h2").contains(person.name);
   });
 
   it("should display the person's details", () => {
     cy.get("nav").find("li").eq(4).find("a").click();
     cy.url().should("include", `/people/popular`);
-    cy.get(".card").eq(3).find("img").click();
+    cy.get(".card").eq(2).find("img").click();
     cy.get("h4").contains("Overview");
     cy.get("ul")
       .eq(1)
