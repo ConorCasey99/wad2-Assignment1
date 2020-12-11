@@ -15,6 +15,7 @@ const MoviePage = lazy(() => import("./pages/movieDetailsPage"));
 const PersonPage = lazy(() => import("./pages/personDetailsPage"));
 const TvShowPage = lazy(() => import("./pages/tvShowDetailsPage"));
 const AiringTvShowsPage = lazy(() => import("./pages/airingTvShowsPage"));
+const TopRatedTvShowsPage = lazy(() => import("./pages/topRatedTvShowsPage"));
 const FavoriteMoviesPage = lazy(() => import("./pages/favoritesMoviesPage"));
 const MovieReviewPage = lazy(() => import("./pages/movieReviewPage"));
 const TvShowReviewPage = lazy(() => import("./pages/tvShowReviewPage"));
@@ -24,6 +25,7 @@ const MoviesContextProvider = lazy(() => import("./contexts/moviesContext"));
 const PeopleContextProvider = lazy(() => import("./contexts/peopleContext"));
 const GenresContextProvider = lazy(() => import("./contexts/genresContext"));
 const TvShowsContextProvider = lazy(() => import("./contexts/tvShowsContext"));
+const TopRatedContextProvider = lazy(() => import("./contexts/topRatedContext"));
 const AddMovieReviewPage = lazy(() => import("./pages/addMovieReviewPage"));
 const peopleListPage = lazy(() => import("./pages/peopleListPage"));
 const watchlistPage = lazy(() => import("./pages/watchlistPage"));
@@ -59,6 +61,7 @@ const App = () => {
               <MoviesContextProvider> 
                 <PeopleContextProvider>
                 <TvShowsContextProvider>
+                <TopRatedContextProvider>
                 <GenresContextProvider>
                   <Switch>
                   <Route exact path="/reviews/form" component={AddMovieReviewPage} />
@@ -69,6 +72,7 @@ const App = () => {
                     <Route exact path="/people/favorites" component={favoritePeoplePage} />
                     <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
                     <Route exact path="/tvShows/popular" component={PopularShowsPage} />
+                    <Route exact path="/tvShows/topRated" component={TopRatedTvShowsPage} />
                     <Route exact path="/tvShows/airing" component={AiringTvShowsPage} />
                     <Route exact path="/tvShows/favorites" component={FavoriteTvShowsPage} />
                     <Route exact path="/tvShowReviews/:id" component={TvShowReviewPage} />
@@ -80,6 +84,7 @@ const App = () => {
                     <Redirect from="*" to="/" />
                   </Switch>
                 </GenresContextProvider>
+                </TopRatedContextProvider>
                 </TvShowsContextProvider>
                 </PeopleContextProvider>
               </MoviesContextProvider>   

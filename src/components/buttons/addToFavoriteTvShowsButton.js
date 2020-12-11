@@ -3,7 +3,6 @@ import {TvShowsContext} from "../../contexts/tvShowsContext";
 
 const AddToFavoriteTvShowsButton = ({ tvShow }) => {
   const context = useContext(TvShowsContext);
-
   const handleAddToFavoriteTvShows = e => {
     e.preventDefault();
     context.addToFavoriteTvShows(tvShow.id);
