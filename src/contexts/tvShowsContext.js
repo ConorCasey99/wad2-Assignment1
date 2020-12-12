@@ -25,7 +25,7 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
-        airing: [...state.airing]
+       // airing: [...state.airing]
       };
     default:
       return state;
@@ -37,7 +37,7 @@ const TvShowsContextProvider = (props) => {
 
   const addToFavoriteTvShows = (tvShowId) => {
     const index = state.tvShows.map((m) => m.id).indexOf(tvShowId);
-    dispatch({ type: "add-favorite-tvShow", payload: { tvShow: state.tvShows[index] } });
+    dispatch({ type: "add-favorite-tvShow", payload: { tvShow: state.tvShows[index], airing: state.airing[index] } });
   };
 
   const addTvShowReview = (tvShow, review) => {

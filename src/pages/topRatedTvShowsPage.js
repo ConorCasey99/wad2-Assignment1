@@ -6,7 +6,7 @@ import {TopRatedContext} from '../contexts/topRatedContext'
 const AiringTvShowsPage = () => {
   const context = useContext(TopRatedContext);
   const topRated = context.topRated.filter((m) => {  
-    return !("favoriteTvShow" in m);
+    return !("topRated" in m);
   });
 
   return (
