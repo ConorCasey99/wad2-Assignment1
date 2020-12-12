@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import {getTvShows, getAiringTvShows, getTopRatedTvShows} from "../api/tmdb-api";
+import {getTvShows, getAiringTvShows} from "../api/tmdb-api";
 
 export const TvShowsContext = createContext(null);
 

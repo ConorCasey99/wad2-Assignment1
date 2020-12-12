@@ -35,7 +35,7 @@ const SiteHeader = () => {
           <NavDropdown.Item  className="text-black my-auto" as={Link} to="/people/popular">PopularPeople</NavDropdown.Item>
           <NavDropdown.Item  className="text-black my-auto" as={Link} to="/people/favorites">Favorite People</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link as={Link} to="/" ><img src={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fzh%2Fthumb%2F9%2F9b%2FThe_Movie_Database_v5_logo.svg%2F1200px-The_Movie_Database_v5_logo.svg.png&f=1&nofb=1`} alt="Logo" /></Nav.Link>
+              <Nav.Link as={Link} to="/" ><img src={`https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fzh%2Fthumb%2F9%2F9b%2FThe_Movie_Database_v5_logo.svg%2F1200px-The_Movie_Database_v5_logo.svg.png&f=1&nofb=1`} alt="Logo" /></Nav.Link>
 
           
 
