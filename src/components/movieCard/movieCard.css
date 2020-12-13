@@ -18,3 +18,8 @@ p {
 .card-title {
   text-align: center
 }
+
+.card{
+  padding-top:6%;
+  margin: 3%;
+}

@@ -33,6 +33,7 @@ const favoritePeoplePage = lazy(() => import("./pages/favoritePeoplePage"));
 const PopularShowsPage = lazy(() => import("./pages/tvShowListPage"));
 const AddTvShowReviewPage = lazy(() => import("./pages/addTvShowReviewPage"));
 const FavoriteTvShowsPage = lazy(() => import("./pages/favoriteTvShowsPage"));
+const CurrentlyWatchingPage = lazy(() => import("./pages/currentlyWatchingPage"));
 
 //import MoviePage from './pages/movieDetailsPage'
 //import PersonPage from'./pages/personDetailsPage'
@@ -75,6 +76,7 @@ const App = () => {
                     <Route exact path="/tvShows/topRated" component={TopRatedTvShowsPage} />
                     <Route exact path="/tvShows/airing" component={AiringTvShowsPage} />
                     <Route exact path="/tvShows/favorites" component={FavoriteTvShowsPage} />
+                    <Route exact path="/tvShows/currentlyWatching" component={CurrentlyWatchingPage} />
                     <Route exact path="/tvShowReviews/:id" component={TvShowReviewPage} />
                     <Route exact path="/people/popular" component={peopleListPage} />
                     <Route path="/people/:id" component={PersonPage}/>

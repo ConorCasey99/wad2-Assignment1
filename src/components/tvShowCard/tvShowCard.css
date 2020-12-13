@@ -14,8 +14,14 @@ p {
 .card-body {
   padding-top: 1px;
   padding-bottom: 1px;
+
 }
 
 .card-title {
   text-align: center
+}
+
+.card{
+  padding-top:6%;
+  margin: 3%;
 }

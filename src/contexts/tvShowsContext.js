@@ -10,7 +10,14 @@ const reducer = (state, action) => {
           tvShows: state.tvShows.map((m) =>
             m.id === action.payload.tvShow.id ? { ...m, favoriteTvShow: true } : m
           ),
-          airing: [...state.airing]
+          airing: [...state.airing],
+        };
+    case "add-currently-watching":
+        return {
+          airing: state.airing.map((m) =>
+            m.id === action.payload.tvShow.id ? { ...m, airing: true } : m
+          ),
+          tvShows: [...state.tvShows],
         };
 
     case "load":
@@ -25,7 +32,7 @@ const reducer = (state, action) => {
             ? { ...m, review: action.payload.review }
             : m
         ),
-       // airing: [...state.airing]
+       airing: [...state.airing],
       };
     default:
       return state;
@@ -37,7 +44,12 @@ const TvShowsContextProvider = (props) => {
 
   const addToFavoriteTvShows = (tvShowId) => {
     const index = state.tvShows.map((m) => m.id).indexOf(tvShowId);
-    dispatch({ type: "add-favorite-tvShow", payload: { tvShow: state.tvShows[index], airing: state.airing[index] } });
+    dispatch({ type: "add-favorite-tvShow", payload: { tvShow: state.tvShows[index]} });
+  };
+
+  const addToCurrentlyWatchingTvShows = (tvShowId) => {
+    const index = state.airing.map((m) => m.id).indexOf(tvShowId);
+    dispatch({ type: "add-currently-watching", payload: { tvShow: state.airing[index]} });
   };
 
   const addTvShowReview = (tvShow, review) => {
@@ -64,6 +76,7 @@ const TvShowsContextProvider = (props) => {
         tvShows: state.tvShows,
         airing: state.airing,
         addToFavoriteTvShows: addToFavoriteTvShows,
+        addToCurrentlyWatchingTvShows: addToCurrentlyWatchingTvShows,
         addTvShowReview: addTvShowReview,
       }}
     >
