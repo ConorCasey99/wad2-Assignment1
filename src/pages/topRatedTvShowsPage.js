@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateTvShowListPage'
 import AddToFavoriteTvShowsButton from '../components/buttons/addToFavoriteTvShowsButton'
-import {TopRatedContext} from '../contexts/topRatedContext'
+import {TvShowsContext} from '../contexts/tvShowsContext'
 
-const AiringTvShowsPage = () => {
-  const context = useContext(TopRatedContext);
+const TopRatedTvShowsPage = () => {
+  const context = useContext(TvShowsContext);
   const topRated = context.topRated.filter((m) => {  
-    return !("topRated" in m);
+    return !("favoriteTvShow" in m);
   });
 
   return (
@@ -20,4 +20,4 @@ const AiringTvShowsPage = () => {
   );
 };
 
-export default AiringTvShowsPage;
+export default TopRatedTvShowsPage;

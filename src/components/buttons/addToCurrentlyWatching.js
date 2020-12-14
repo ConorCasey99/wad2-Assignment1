@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import {TvShowsContext} from "../../contexts/tvShowsContext";
+import {AiringContext} from "../../contexts/airingTvContext";
 
 const AddToCurrentlyWatchingTvShows = ({ tvShow }) => {
-  const context = useContext(TvShowsContext);
+  const context = useContext(AiringContext);
   
   const handleAddToCurrentlyWatchingTvShows = e => {
     e.preventDefault();

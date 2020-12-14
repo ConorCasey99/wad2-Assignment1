@@ -1,10 +1,10 @@
 import React, {useContext} from "react";
 import TvShowListPageTemplate from "../components/templateTvShowListPage";
 import AddTvShowReviewButton from '../components/buttons/addTvShowReview'
-import {TvShowsContext} from '../contexts/tvShowsContext'
+import {AiringContext} from '../contexts/airingTvContext'
 
 const CurrentlyWatchingPage = ()=> {
-  const context = useContext(TvShowsContext);
+  const context = useContext(AiringContext);
   const CurrentlyWatchingTvShows = context.airing.filter( m => m.airing )
   return (
     <TvShowListPageTemplate

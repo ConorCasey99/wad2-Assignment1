@@ -25,7 +25,7 @@ const MoviesContextProvider = lazy(() => import("./contexts/moviesContext"));
 const PeopleContextProvider = lazy(() => import("./contexts/peopleContext"));
 const GenresContextProvider = lazy(() => import("./contexts/genresContext"));
 const TvShowsContextProvider = lazy(() => import("./contexts/tvShowsContext"));
-const TopRatedContextProvider = lazy(() => import("./contexts/topRatedContext"));
+const TopRatedContextProvider = lazy(() => import("./contexts/airingTvContext"));
 const AddMovieReviewPage = lazy(() => import("./pages/addMovieReviewPage"));
 const peopleListPage = lazy(() => import("./pages/peopleListPage"));
 const watchlistPage = lazy(() => import("./pages/watchlistPage"));
