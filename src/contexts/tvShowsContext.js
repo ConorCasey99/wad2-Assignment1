@@ -12,11 +12,17 @@ const reducer = (state, action) => {
           ),
           topRated: [...state.topRated],
         };
-
-        case "load":
-          return { tvShows: action.payload.tvShows, topRated: [...state.topRated]};
-        case "load-topRated":
-          return { topRated: action.payload.tvShows, tvShows: [...state.tvShows]}; 
+    case "add-plan-to-watch":
+        return {
+          topRated: state.topRated.map((m) =>
+            m.id === action.payload.tvShow.id ? { ...m, favoriteTvShow: true } : m
+          ),
+          tvShows: [...state.tvShows],
+        };
+    case "load":
+      return { tvShows: action.payload.tvShows, topRated: [...state.topRated]};
+    case "load-topRated":
+      return { topRated: action.payload.tvShows, tvShows: [...state.tvShows]}; 
 
     case "add-TvShowReview":
       return {
@@ -38,6 +44,11 @@ const TvShowsContextProvider = (props) => {
   const addToFavoriteTvShows = (tvShowId) => {
     const index = state.tvShows.map((m) => m.id).indexOf(tvShowId);
     dispatch({ type: "add-favorite-tvShow", payload: { tvShow: state.tvShows[index]} });
+  };
+
+  const addPlanToWatchTvShows = (tvShowId) => {
+    const index = state.tvShows.map((m) => m.id).indexOf(tvShowId);
+    dispatch({ type: "add-plan-to-watch", payload: { tvShow: state.tvShows[index]} });
   };
 
   const addTvShowReview = (tvShow, review) => {
@@ -64,6 +75,7 @@ const TvShowsContextProvider = (props) => {
         tvShows: state.tvShows,
         topRated: state.topRated,
         addToFavoriteTvShows: addToFavoriteTvShows,
+        addPlanToWatchTvShows: addPlanToWatchTvShows,
         addTvShowReview: addTvShowReview,
       }}
     >
