@@ -28,7 +28,7 @@ describe("Popular TvShows Page ", () => {
   
     describe("Base test", () => {
       it("displays page header", () => {
-        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
         cy.wait(5000)
         cy.get("h2").contains("Popular TvShows No.");
         cy.get(".badge").contains(20);
@@ -37,7 +37,7 @@ describe("Popular TvShows Page ", () => {
         it("should only display movies with the specified name substring", () => {
           let searchString = "a";
           let matchingTvShows = filterByName(tvShows, searchString);
-          cy.get("nav").find("li").eq(6).find("a").click();
+          cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
           cy.get("input").clear().type(searchString); // Enter m in text box
           cy.get(".card").should("have.length", matchingTvShows.length);
           // Do a second test for certainty!
@@ -57,7 +57,8 @@ describe("Popular TvShows Page ", () => {
             const selectedGenreId =  18;
             const selectedGenreText = "Drama";
             const matchingTvShows = filterByGenre(tvShows, selectedGenreId);
-            cy.get("nav").find("li").eq(6).find("a").click();
+            cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
+            cy.wait(5000)
             cy.get("select").select(selectedGenreText); 
             cy.get(".card").should("have.length", matchingTvShows.length);
             cy.get(".card").each(($card, index) => {
@@ -69,11 +70,11 @@ describe("Popular TvShows Page ", () => {
           }); 
           describe("by genre and name", () => {
             it("should display tvShows with the specified genre and name only", () => {
-              const searchString = "a";
-              const selectedGenreId = 37;
-              const selectedGenreText = "Western";
+              const searchString = "T";
+              const selectedGenreId = 35;
+              const selectedGenreText = "Comedy";
               const matchingTvShows = filterByName(tvShows, searchString) && filterByGenre(tvShows, selectedGenreId);
-              cy.get("nav").find("li").eq(6).find("a").click();
+              cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
               cy.get("input").clear().type(searchString);
               cy.get("select").select(selectedGenreText);
               cy.get(".card").should("have.length", matchingTvShows.length);

@@ -33,12 +33,12 @@ describe("Home Page ", () => {
       });
       describe("Filtering", () => {
         it("should only display movies with the specified title substring", () => {
-          let searchString = "o";
+          let searchString = "a";
           let matchingMovies = filterByTitle(movies, searchString);
           cy.get("input").clear().type(searchString); // Enter m in text box
           cy.get(".card").should("have.length", matchingMovies.length);
           // Do a second test for certainty!
-          searchString = "o";
+          searchString = "a";
           matchingMovies = filterByTitle(movies, searchString);
           cy.get("input").clear().type(searchString)
           cy.get(".card").should("have.length", matchingMovies.length);
@@ -51,8 +51,8 @@ describe("Home Page ", () => {
       });
         describe("By movie genre", () => {
           it("should display movies with the specified genre only", () => {
-            const selectedGenreId = 35;
-            const selectedGenreText = "Comedy";
+            const selectedGenreId = 16;
+            const selectedGenreText = "Animation";
             const matchingMovies = filterByGenre(movies, selectedGenreId);
             cy.get("select").select(selectedGenreText); 
             cy.get(".card").should("have.length", matchingMovies.length);

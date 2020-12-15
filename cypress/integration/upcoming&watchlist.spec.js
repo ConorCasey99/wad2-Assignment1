@@ -26,7 +26,7 @@ describe("Upcoming Page ", () => {
   
     describe("Base test", () => {
       it("displays page header", () => {
-        cy.get("nav").find("li").eq(2).find("a").click();
+        cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Upcoming").click();
         cy.url().should("include", `/upcoming`);
         cy.get("h2").contains("No. Movies");
         cy.wait(3000)
@@ -36,7 +36,7 @@ describe("Upcoming Page ", () => {
         it("should only display movies with the specified title substring", () => {
           let searchString = "o";
           let matchingMovies = filterByTitle(movies, searchString);
-          cy.get("nav").find("li").eq(2).find("a").click();
+          cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Upcoming").click();
           cy.url().should("include", `/upcoming`);
           cy.get("input").clear().type(searchString); // Enter m in text box
           cy.get(".card").should("have.length", matchingMovies.length);
@@ -57,7 +57,7 @@ describe("Upcoming Page ", () => {
             const selectedGenreId = 35;
             const selectedGenreText = "Comedy";
             const matchingMovies = filterByGenre(movies, selectedGenreId);
-            cy.get("nav").find("li").eq(2).find("a").click();
+            cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Upcoming").click();
             cy.url().should("include", `/upcoming`);
             cy.get("select").select(selectedGenreText); 
             cy.get(".card").should("have.length", matchingMovies.length);
@@ -70,11 +70,11 @@ describe("Upcoming Page ", () => {
           }); 
           describe("by genre and title", () => {
             it("should display movies with the specified genre and title only", () => {
-              const searchString = "e";
-              const selectedGenreId = 28;
-              const selectedGenreText = "Action";
+              const searchString = "o";
+              const selectedGenreId = 10749;
+              const selectedGenreText = "Romance";
               const matchingMovies = filterByTitle(movies, searchString) && filterByGenre(movies, selectedGenreId);
-              cy.get("nav").find("li").eq(2).find("a").click();
+              cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Upcoming").click();
               cy.url().should("include", `/upcoming`);
               cy.get("input").clear().type(searchString);
               cy.get("select").select(selectedGenreText);
@@ -88,15 +88,15 @@ describe("Upcoming Page ", () => {
           });
           describe("add to watchlist", () => {
             it("watchlist button should add movies to the watchlist", () => {
-                cy.get("nav").find("li").eq(2).find("a").click();
-                cy.url().should("include", `/upcoming`);
+              cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Upcoming").click();
+              cy.url().should("include", `/upcoming`);
                 cy.wait(3000)
                 cy.get(".card").eq(0).find("button").click();
                 cy.get(".card").eq(1).find("button").click();
                 cy.get(".card").eq(2).find("button").click();
                 cy.get(".card").eq(3).find("button").click();
                 cy.get(".card").eq(4).find("button").click();
-                cy.get("nav").find("li").eq(3).find("a").click();
+                cy.get(".dropdown").contains("Movies").click().get('.dropdown-menu').get(".dropdown-item").contains("Watchlist").click();
                 cy.url().should("include", `/movies/watchlist`);
                 cy.get("h2").contains("Your watchlist");
                 cy.wait(3000)
