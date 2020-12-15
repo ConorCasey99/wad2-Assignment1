@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateTvShowListPage'
-import AddToFavoriteTvShowsButton from '../components/buttons/addToFavoriteTvShowsButton'
+import AddToPlanToWatchTvShows from '../components/buttons/addToPlanToWatchTvShows'
 import {TvShowsContext} from '../contexts/tvShowsContext'
 
 const TopRatedTvShowsPage = () => {
   const context = useContext(TvShowsContext);
   const topRated = context.topRated.filter((m) => {  
-    return !("favoriteTvShow" in m);
+    return !("topRated" in m);
   });
 
   return (
@@ -14,7 +14,7 @@ const TopRatedTvShowsPage = () => {
       name="Top Rated TvShows No."
       tvShows={topRated} 
       action={(tvShow) => {
-      return <AddToFavoriteTvShowsButton tvShow={tvShow} />;
+      return <AddToPlanToWatchTvShows tvShow={tvShow} />;
       }}
     />
   );
