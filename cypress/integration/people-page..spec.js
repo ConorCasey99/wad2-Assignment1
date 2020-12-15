@@ -24,7 +24,7 @@ describe("Popular People Page ", () => {
 
     describe("Base test", () => {
         it("displays page header", () => {
-          cy.get("nav").find("li").eq(4).find("a").click();
+          cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
           cy.url().should("include", `/people/popular`);
           cy.get("h2").contains("Popular People No");
           cy.get(".badge").contains(20);
@@ -32,7 +32,7 @@ describe("Popular People Page ", () => {
 
         describe("Filtering", () => {
             it("should only display people with the specified title substring", () => {
-              cy.get("nav").find("li").eq(4).find("a").click();
+              cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
               cy.url().should("include", `/people/popular`);
               let searchString = "o";
               let matchingPeople = filterByName(people, searchString);

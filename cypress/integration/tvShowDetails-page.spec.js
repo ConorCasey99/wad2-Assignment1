@@ -36,20 +36,20 @@ describe("TvShow Details Page", () => {
   });
 
   it("should display tvShow name in the page header", () => {
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
     cy.get(".card").eq(1).find("img").click();
     cy.wait(6000)
     cy.get("h2").contains(tvShow.name);
   });
 
   it("should display the tvShow's details", () => {
-    cy.get("nav").find("li").eq(6).find("a").click();
+    cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
     cy.get(".card").eq(1).find("img").click();
     cy.wait(6000)
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(tvShow.overview);
     cy.get("ul")
-      .eq(1)
+      .eq(0)
       .within(() => {
         cy.get("li").eq(0).contains("Number Episodes");
         cy.get("li").eq(1).contains(tvShow.number_of_episodes);
@@ -57,37 +57,37 @@ describe("TvShow Details Page", () => {
         cy.get("li").eq(3).contains(tvShow.first_air_date);
       });
       cy.get("ul")
-      .eq(2)
+      .eq(1)
       .within(() => {
         cy.get("li").eq(0).contains("Genres");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
       });
       cy.get("ul")
-      .eq(3)
+      .eq(2)
       .within(() => {
         cy.get("li").eq(0).contains("Spoken Languages");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
       });
       cy.get("ul")
-      .eq(4)
+      .eq(3)
       .within(() => {
         cy.get("li").eq(0).contains("Production Companies");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
       });
       cy.get("ul")
-      .eq(5)
+      .eq(4)
       .within(() => {
         cy.get("li").eq(0).contains("Production Countries");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
       });
       cy.get("ul")
-      .eq(6)
+      .eq(5)
       .within(() => {
         cy.get("li").eq(0).contains("Seasons");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
       });
       cy.get("ul")
-      .eq(7)
+      .eq(6)
       .within(() => {
         cy.get("li").eq(0).contains("Overview");
         //cy.get("li").eq(1).contains(tvShow.genres.map);
@@ -95,7 +95,7 @@ describe("TvShow Details Page", () => {
     });
 
       it("should display the Home icon with the correct URL value", () => {
-        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
         cy.get(".card").eq(1).find("img").click();
         cy.wait(6000)
         cy.get(".fa-home")
@@ -105,7 +105,7 @@ describe("TvShow Details Page", () => {
       });
 
       it("should display tvShow poster", () => {
-        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
         cy.get(".card").eq(1).find("img").click();
         cy.wait(6000)
         cy.get(".tvShow")

@@ -35,7 +35,7 @@ describe("Person Details Page", () => {
   });
 
   it("should display Person name in the page header", () => {
-    cy.get("nav").find("li").eq(4).find("a").click();
+    cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
     cy.url().should("include", `/people/popular`);
     cy.wait(3000)
     cy.get(".card").eq(2).find("img").click();
@@ -43,12 +43,12 @@ describe("Person Details Page", () => {
   });
 
   it("should display the person's details", () => {
-    cy.get("nav").find("li").eq(4).find("a").click();
+    cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
     cy.url().should("include", `/people/popular`);
     cy.get(".card").eq(2).find("img").click();
     cy.get("h4").contains("Overview");
     cy.get("ul")
-      .eq(1)
+      .eq(0)
       .within(() => {
         cy.get("li").eq(0).contains("Also known as");
         //cy.get("li").eq(1).contains(person.also_known_as);
@@ -62,7 +62,7 @@ describe("Person Details Page", () => {
         cy.get("li").eq(9).contains(person.place_of_birth);
       });
       cy.get("ul")
-      .eq(2)
+      .eq(1)
       .within(() => {
         cy.get("li").eq(0).contains("Biography");
         //cy.get("li").eq(1).contains(person.biography);
@@ -70,7 +70,7 @@ describe("Person Details Page", () => {
     });
 
       it("should display the Home icon with the correct URL value", () => {
-        cy.get("nav").find("li").eq(4).find("a").click();
+        cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
         cy.url().should("include", `/people/popular`);
         cy.get(".card").eq(3).find("img").click();
         cy.get(".fa-home")
@@ -80,7 +80,7 @@ describe("Person Details Page", () => {
       });
 
       it("should display person poster", () => {
-        cy.get("nav").find("li").eq(4).find("a").click();
+        cy.get(".dropdown").contains("People").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular People").click();
         cy.url().should("include", `/people/popular`);
         cy.get(".card").eq(3).find("img").click();
         cy.get(".person")

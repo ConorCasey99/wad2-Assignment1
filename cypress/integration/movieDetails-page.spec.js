@@ -12,7 +12,7 @@ describe("Movie Details Page", () => {
     )
       .its("body")
       .then((response) => {
-        return response.results[1].id;
+        return response.results[0].id;
       })
       .then((arbitraryMovieIdignored) => {
         movieId = arbitraryMovieIdignored
@@ -33,7 +33,7 @@ describe("Movie Details Page", () => {
   beforeEach(() => {
     cy.visit(`/`);
     cy.wait(3000)
-    cy.get(".card").eq(1).find("img").click();
+    cy.get(".card").eq(0).find("img").click();
   });
 
   it("should display movie title in the page header", () => {
@@ -44,9 +44,9 @@ describe("Movie Details Page", () => {
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(movie.overview);
     cy.get("ul")
-      .eq(1)
+      .eq(0)
       .within(() => {
-        cy.get("li").eq(0).contains("Runtime");
+        cy.get("li").eq(0).contains("Runtime (min.)");
         cy.get("li").eq(1).contains(movie.runtime);
         cy.get("li").eq(2).contains("Release Date");
         cy.get("li").eq(3).contains(movie.release_date);

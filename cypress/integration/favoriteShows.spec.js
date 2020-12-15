@@ -25,7 +25,7 @@ describe("Favorite TvShows Page ", () => {
   
     describe("Base test", () => {
       it("displays page header", () => {
-        cy.get("nav").find("li").eq(6).find("a").click();
+        cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
         cy.url().should("include", `/tvShows`);
         cy.get("h2").contains("Popular TvShows No.");
         cy.wait(6000)
@@ -33,7 +33,7 @@ describe("Favorite TvShows Page ", () => {
       });
           describe("add to Favorite tvShow list", () => {
             it("Add to favorites button should add TvShows to the favorites", () => {
-                cy.get("nav").find("li").eq(6).find("a").click();
+              cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Popular TvShows").click();
                 cy.url().should("include", `/tvShows`);
                 cy.wait(3000)
                 cy.get(".card").eq(0).find("button").click();
@@ -41,7 +41,7 @@ describe("Favorite TvShows Page ", () => {
                 cy.get(".card").eq(2).find("button").click();
                 cy.get(".card").eq(3).find("button").click();
                 cy.get(".card").eq(4).find("button").click();
-                cy.get("nav").find("li").eq(7).find("a").click();
+                cy.get(".dropdown").contains("TvShows").click().get('.dropdown-menu').get(".dropdown-item").contains("Favorite Shows").click();
                 cy.url().should("include", `/tvShows/favorites`);
                 cy.get("h2").contains("Favorite Tv Shows");
                 cy.wait(3000)
