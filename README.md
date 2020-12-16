@@ -169,13 +169,5 @@ https://react-bootstrap.github.io/components/dropdowns/ - Used for the nav bar
 [peopleDetailsPage]: ./public/peopleDetailsPage.png
 [tvShowPage]: ./public/tvShowPage.png
 [showReview]: ./public/showReview.png
-[dataHyperLinkTvShow]  ./public/dataHyperLinkTvShow.png 
-[dataHyperLinkTvShow2] ./public/dataHyperLinkTvShow2.png
-[dataHyperLinkTvShow3] ./public/dataHyperLinkTvShow3.png
-[dataHyperLinkTvShow4]: ./public/dataHyperLinkTvShow4.png
-[dataHyperLinkTvShow5]: ./public/dataHyperLinkTvShow5.png
-[dataHyperLinkTvShow6]: ./public/dataHyperLinkTvShow6.png
-[dataHyperLinkTvShow6]: ./public/dataHyperLinkTvShow6.png
-[dataHyperLinkTvShow7]: ./public/dataHyperLinkTvShow7.png
 
 
