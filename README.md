@@ -125,23 +125,26 @@ Name: Conor Casey
 
 .... Use screenshots to illustrate where data hyperlinking is present in your views - include captions.
 
-![][dataHyperLinkTvShow]
+![](./public/dataHyperLinkTvShow.png)
 > 
 
-![][dataHyperLinkTvShow2]
+![](./public/dataHyperLinkTvShow2.png)
 > Clicking a card causes the display of that movie's details.
 
-![][dataHyperLinkTvShow3]
+![](./public/dataHyperLinkTvShow3.png)
 > Clicking show reviews fetches reviews.
 
-![][dataHyperLinkTvShow4]
+![](./public/dataHyperLinkTvShow4.png)
 > Clicking shows the full review.
 
-![][dataHyperLinkTvShow5]
+![](./public/dataHyperLinkTvShow5.png)
 > Displays full review.
 
-![][dataHyperLinkTvShow6]
+![](./public/dataHyperLinkTvShow6.png)
 > Clicking person photo will show details.
+
+![](./public/dataHyperLinkTvShow7.png)
+> Showing details.
 
 ## Independent learning (If relevant).
 
